@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dynamic Resume</title>
+  </head>
+  <body>
+
+  <!-- FORM TO TAKE DATA FOR RESUME   -->
+    <form id="resumeForm">
+        <h1>Enter your Resume Information</h1>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+      <div>
+        <label for="experience">Work Experience:</label>
+        <textarea id="experience" name="experience" required></textarea>
+      </div>
+      <div>
+        <label for="skills">Skills (comma-separated):</label>
+        <textarea id="skills" name="skills" required></textarea>
+      </div>
+      <div>
+        <label for="education">Education:</label>
+        <textarea id="education" name="education" required></textarea>
+      </div>
+      <button type="submit">Generate Resume</button>
+    </form>
+
+  <!-- RESUME CONTAINER   -->
+    <div class="container hidden">
+      <header>
+        <h1 id="resumename" contenteditable="true"></h1>
+        <p >Email: <span id="resumeemail" contenteditable="true"></span></p>
+        <p >Phone: <span id="resumephone" contenteditable="true"></span></p>
+        <button onclick="download()">Download</button>
+      </header>
+
+      <section class="summary">
+        <h2 >Summary</h2>
+
+        <p>
+          Highly adaptable and results-driven professional with 1 years of
+          experience in. 
+        </p>
+        <p>List soft skills relevant to the role, e.g., Communication, Problem-Solving, Team Collaboration</p>
+      </section>
+
+      <button class="summarybtn">Toggle Summary</button>
+      <section class="skills">
+        <h2>Skills</h2>
+          <p>My skills are <span id="resumeskills" contenteditable="true"></span></p>
+      </section>
+
+      <button class="skillsbtn">Toggle Skills</button>
+      <section class="experience">
+        <h2>Work Experience</h2>
+        <div class="job">
+          <ul>
+            <li id="resumeexperience" contenteditable="true"> </li>
+          </ul>
+        </div>
+      </section>
+
+      <button class="experiencebtn">Toggle Experience</button>
+      <section class="education">
+        <h2>Education</h2>
+        <ul>
+          <li id="resumeeducation" contenteditable="true"> </li>
+        </ul>
+      </section>
+
+      <button class="educationbtn">Toggle Education</button>
+      
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
