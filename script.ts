@@ -59,10 +59,14 @@ form.addEventListener("submit", (event) => {
     form.classList.add("hidden")
     container.classList.remove("hidden");
 
+   
+    // Update the URL with the username (no page reload)
     const username = encodeURIComponent(resumeName.innerText.trim());
     const url = new URL(window.location.href);
     url.searchParams.set('user', username);
-    window.history.pushState({ path: url}, "", url);
+
+    // Use history.pushState to update the URL without reloading
+    window.history.pushState({ path: url.href }, "", url.href);
    
 });
 

@@ -46,11 +46,12 @@ form.addEventListener("submit", function (event) {
     resumeEducation.innerText = educationInput.value;
     form.classList.add("hidden");
     container.classList.remove("hidden");
-    // Update URL with the latest username
-    var username = resumeName.innerText;
+    // Update the URL with the username (no page reload)
+    var username = encodeURIComponent(resumeName.innerText.trim());
     var url = new URL(window.location.href);
     url.searchParams.set('user', username);
-    window.history.pushState({ path: url }, "", url);
+    // Use history.pushState to update the URL without reloading
+    window.history.pushState({ path: url.href }, "", url.href);
 });
 function download() {
     window.print();
