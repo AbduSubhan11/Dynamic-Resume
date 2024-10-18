@@ -1,5 +1,3 @@
-//Toggle Button Handling
-
 const summary = document.querySelector(".summary") as HTMLDivElement
 const summaryBtn = document.querySelector(".summarybtn") as HTMLButtonElement
 const skills = document.querySelector(".skills") as HTMLDivElement
@@ -9,7 +7,6 @@ const experienceBtn = document.querySelector(".experiencebtn") as HTMLButtonElem
 const education = document.querySelector(".education") as HTMLDivElement
 const educationBtn = document.querySelector(".educationbtn") as HTMLButtonElement
 
-//ALL TOGGLE BUTTONS HANDLING
 summaryBtn.addEventListener("click",()=>{
     summary.classList.toggle("hidden")
     
@@ -27,8 +24,6 @@ educationBtn.addEventListener("click",()=>{
 })
     
 
-    
-//Resume Data for Forms
 const resumeName = document.getElementById("resumename") as HTMLParagraphElement
 const resumeEmail = document.getElementById("resumeemail") as HTMLParagraphElement
 const resumePhone = document.getElementById("resumephone") as HTMLParagraphElement
@@ -59,17 +54,30 @@ form.addEventListener("submit", (event) => {
     form.classList.add("hidden")
     container.classList.remove("hidden");
 
-   
-    // Update the URL with the username (no page reload)
-    const username = encodeURIComponent(resumeName.innerText.trim());
-    const url = new URL(window.location.href);
-    url.searchParams.set('user', username);
+    const username = encodeURIComponent(resumeName.innerText.trim())
+    const url = new URL(window.location.href)
+    url.searchParams.set('user', username)
 
-    // Use history.pushState to update the URL without reloading
-    window.history.pushState({ path: url.href }, "", url.href);
-   
+    window.history.pushState({ path: url.href }, "", url.href)
 });
 
 function download() {
     window.print()
+}
+
+const copyButton = document.getElementById('copyButton') as HTMLButtonElement;
+const resumeUrl = window.location.href
+
+copyButton.addEventListener('click', () => {
+    copyToClipboard(resumeUrl)
+    alert('Resume URL copied to clipboard!')
+});
+
+function copyToClipboard(text:string) {
+    const Input = document.createElement('input')
+    Input.value = text; 
+    document.body.appendChild(Input)
+    Input.select(); 
+    document.execCommand('copy')
+    document.body.removeChild(Input)
 }

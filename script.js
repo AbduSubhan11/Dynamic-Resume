@@ -1,42 +1,40 @@
-//Toggle Button Handling
-var summary = document.querySelector(".summary");
-var summaryBtn = document.querySelector(".summarybtn");
-var skills = document.querySelector(".skills");
-var skillsBtn = document.querySelector(".skillsbtn");
-var experience = document.querySelector(".experience");
-var experienceBtn = document.querySelector(".experiencebtn");
-var education = document.querySelector(".education");
-var educationBtn = document.querySelector(".educationbtn");
-//ALL TOGGLE BUTTONS HANDLING
-summaryBtn.addEventListener("click", function () {
+"use strict";
+const summary = document.querySelector(".summary");
+const summaryBtn = document.querySelector(".summarybtn");
+const skills = document.querySelector(".skills");
+const skillsBtn = document.querySelector(".skillsbtn");
+const experience = document.querySelector(".experience");
+const experienceBtn = document.querySelector(".experiencebtn");
+const education = document.querySelector(".education");
+const educationBtn = document.querySelector(".educationbtn");
+summaryBtn.addEventListener("click", () => {
     summary.classList.toggle("hidden");
 });
-skillsBtn.addEventListener("click", function () {
+skillsBtn.addEventListener("click", () => {
     skills.classList.toggle("hidden");
 });
-experienceBtn.addEventListener("click", function () {
+experienceBtn.addEventListener("click", () => {
     experience.classList.toggle("hidden");
 });
-educationBtn.addEventListener("click", function () {
+educationBtn.addEventListener("click", () => {
     education.classList.toggle("hidden");
 });
-//Resume Data for Forms
-var resumeName = document.getElementById("resumename");
-var resumeEmail = document.getElementById("resumeemail");
-var resumePhone = document.getElementById("resumephone");
-var resumeSkills = document.getElementById("resumeskills");
-var resumeExperience = document.getElementById("resumeexperience");
-var resumeEducation = document.getElementById("resumeeducation");
-var container = document.querySelector(".container");
+const resumeName = document.getElementById("resumename");
+const resumeEmail = document.getElementById("resumeemail");
+const resumePhone = document.getElementById("resumephone");
+const resumeSkills = document.getElementById("resumeskills");
+const resumeExperience = document.getElementById("resumeexperience");
+const resumeEducation = document.getElementById("resumeeducation");
+const container = document.querySelector(".container");
 //Forms Handling fields
-var namesInput = document.getElementById("name");
-var emailInput = document.getElementById("email");
-var phoneInput = document.getElementById("phone");
-var skillsInput = document.getElementById("skills");
-var experienceInput = document.getElementById("experience");
-var educationInput = document.getElementById("education");
-var form = document.getElementById("resumeForm");
-form.addEventListener("submit", function (event) {
+const namesInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const skillsInput = document.getElementById("skills");
+const experienceInput = document.getElementById("experience");
+const educationInput = document.getElementById("education");
+const form = document.getElementById("resumeForm");
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     resumeName.innerText = namesInput.value;
     resumeEmail.innerText = emailInput.value;
@@ -46,13 +44,25 @@ form.addEventListener("submit", function (event) {
     resumeEducation.innerText = educationInput.value;
     form.classList.add("hidden");
     container.classList.remove("hidden");
-    // Update the URL with the username (no page reload)
-    var username = encodeURIComponent(resumeName.innerText.trim());
-    var url = new URL(window.location.href);
+    const username = encodeURIComponent(resumeName.innerText.trim());
+    const url = new URL(window.location.href);
     url.searchParams.set('user', username);
-    // Use history.pushState to update the URL without reloading
     window.history.pushState({ path: url.href }, "", url.href);
 });
 function download() {
     window.print();
+}
+const copyButton = document.getElementById('copyButton');
+const resumeUrl = window.location.href;
+copyButton.addEventListener('click', () => {
+    copyToClipboard(resumeUrl);
+    alert('Resume URL copied to clipboard!');
+});
+function copyToClipboard(text) {
+    const Input = document.createElement('input');
+    Input.value = text;
+    document.body.appendChild(Input);
+    Input.select();
+    document.execCommand('copy');
+    document.body.removeChild(Input);
 }
