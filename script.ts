@@ -68,13 +68,6 @@ function download() {
     window.print()
 }
 
-const copyButton = document.getElementById('copyButton') as HTMLButtonElement;
-const resumeUrl = window.location.href
-copyButton.addEventListener('click', () => {
-    copyToClipboard(resumeUrl)
-    alert('Resume URL copied to clipboard!')
-});
-
 function copyToClipboard(text:string) {
     const Input = document.createElement('input')
     Input.value = text; 
@@ -83,3 +76,10 @@ function copyToClipboard(text:string) {
     document.execCommand('copy')
     document.body.removeChild(Input)
 }
+
+const copyButton = document.getElementById('copyButton') as HTMLButtonElement;
+const resumeUrl = window.location.href
+copyButton.addEventListener('click', () => {
+    copyToClipboard(resumeUrl)
+    alert('Resume URL copied to clipboard!')
+});
