@@ -24,6 +24,7 @@ const resumeEmail = document.getElementById("resumeemail");
 const resumePhone = document.getElementById("resumephone");
 const resumeSkills = document.getElementById("resumeskills");
 const resumeExperience = document.getElementById("resumeexperience");
+const resumeSummary = document.getElementById("resumesummary");
 const resumeEducation = document.getElementById("resumeeducation");
 const container = document.querySelector(".container");
 //Forms Handling fields
@@ -32,6 +33,7 @@ const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const skillsInput = document.getElementById("skills");
 const experienceInput = document.getElementById("experience");
+const summaryInput = document.getElementById("summary");
 const educationInput = document.getElementById("education");
 const form = document.getElementById("resumeForm");
 form.addEventListener("submit", (event) => {
@@ -41,6 +43,7 @@ form.addEventListener("submit", (event) => {
     resumePhone.innerText = phoneInput.value;
     resumeSkills.textContent = skillsInput.value;
     resumeExperience.innerText = experienceInput.value;
+    resumeSummary.innerText = summaryInput.value;
     resumeEducation.innerText = educationInput.value;
     form.classList.add("hidden");
     container.classList.remove("hidden");

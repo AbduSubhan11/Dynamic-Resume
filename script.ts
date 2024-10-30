@@ -29,6 +29,7 @@ const resumeEmail = document.getElementById("resumeemail") as HTMLParagraphEleme
 const resumePhone = document.getElementById("resumephone") as HTMLParagraphElement
 const resumeSkills = document.getElementById("resumeskills") as HTMLSpanElement
 const resumeExperience = document.getElementById("resumeexperience") as HTMLParagraphElement
+const resumeSummary = document.getElementById("resumesummary") as HTMLParagraphElement
 const resumeEducation = document.getElementById("resumeeducation") as HTMLParagraphElement
 const container = document.querySelector(".container") as HTMLDivElement
 
@@ -39,8 +40,10 @@ const emailInput = document.getElementById("email") as HTMLInputElement;
 const phoneInput = document.getElementById("phone") as HTMLInputElement;
 const skillsInput = document.getElementById("skills") as HTMLInputElement;
 const experienceInput = document.getElementById("experience") as HTMLInputElement;
+const summaryInput = document.getElementById("summary") as HTMLInputElement;
 const educationInput = document.getElementById("education") as HTMLInputElement;
 const form = document.getElementById("resumeForm") as HTMLFormElement;
+
 
 form.addEventListener("submit", (event) => {
     event.preventDefault(); 
@@ -49,6 +52,7 @@ form.addEventListener("submit", (event) => {
     resumePhone.innerText = phoneInput.value;
     resumeSkills.textContent = skillsInput.value;
     resumeExperience.innerText = experienceInput.value
+    resumeSummary.innerText = summaryInput.value
     resumeEducation.innerText = educationInput.value
     
     form.classList.add("hidden")
@@ -57,7 +61,6 @@ form.addEventListener("submit", (event) => {
     const username = encodeURIComponent(resumeName.innerText.trim())
     const url = new URL(window.location.href)
     url.searchParams.set('user', username)
-
     window.history.pushState({ path: url.href }, "", url.href)
 });
 
@@ -67,7 +70,6 @@ function download() {
 
 const copyButton = document.getElementById('copyButton') as HTMLButtonElement;
 const resumeUrl = window.location.href
-
 copyButton.addEventListener('click', () => {
     copyToClipboard(resumeUrl)
     alert('Resume URL copied to clipboard!')

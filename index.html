@@ -7,10 +7,9 @@
     <title>Dynamic Resume</title>
   </head>
   <body>
-
-  <!-- FORM TO TAKE DATA FOR RESUME   -->
+    <!-- FORM TO TAKE DATA FOR RESUME   -->
     <form id="resumeForm">
-        <h1>Enter your Resume Information</h1>
+      <h1>Enter Your Resume Information</h1>
       <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
@@ -28,6 +27,10 @@
         <textarea id="experience" name="experience" required></textarea>
       </div>
       <div>
+        <label for="summary">Summary</label>
+        <textarea id="summary" name="summary" required></textarea>
+      </div>
+      <div>
         <label for="skills">Skills (comma-separated):</label>
         <textarea id="skills" name="skills" required></textarea>
       </div>
@@ -38,52 +41,87 @@
       <button type="submit">Generate Resume</button>
     </form>
 
-  <!-- RESUME CONTAINER   -->
+    <!-- RESUME CONTAINER   -->
     <div class="container hidden">
       <header>
         <h1 id="resumename" contenteditable="true"></h1>
-        <p >Email: <span id="resumeemail" contenteditable="true"></span></p>
-        <p >Phone: <span id="resumephone" contenteditable="true"></span></p>
         <button onclick="download()">Download</button>
-        <button id="copyButton" >Copy URL</button>
+        <button id="copyButton">Copy URL</button>
       </header>
 
-      <section class="summary">
-        <h2 >Summary</h2>
+      <section class="herocontainer">
+        <!-- LEFT -->
+        <aside>
+          <h2>Contact</h2>
+          <div class="emailwithSvg">
+            <span id="resumeemail" contenteditable="true"></span
+            ><svg
+              class="h-8 w-8"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </div>
+          <div class="phonewithSvg">
+            <span id="resumephone" contenteditable="true"></span
+            ><svg
+              class="h-8 w-8 text-red-500"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+              />
+            </svg>
+          </div>
+        </aside>
 
-        <p>
-          Highly adaptable and results-driven professional with 1 years of
-          experience in. 
-        </p>
-        <p>List soft skills relevant to the role, e.g., Communication, Problem-Solving, Team Collaboration</p>
-      </section>
+        <!-- RIGHT -->
+        <div class="righthero">
+          <section class="summary">
+            <h2>Summary</h2>
+            <p id="resumesummary" contenteditable="true"></p>
+          </section>
 
-      <button class="summarybtn">Toggle Summary</button>
-      <section class="skills">
-        <h2>Skills</h2>
-          <p>My skills are <span id="resumeskills" contenteditable="true"></span></p>
-      </section>
+          <button class="summarybtn">Toggle Summary</button>
+          <section class="skills">
+            <h2>Skills</h2>
+            <p id="resumeskills" contenteditable="true"></p>
+          </section>
 
-      <button class="skillsbtn">Toggle Skills</button>
-      <section class="experience">
-        <h2>Work Experience</h2>
-        <div class="job">
-          <ul>
-            <li id="resumeexperience" contenteditable="true"> </li>
-          </ul>
+          <button class="skillsbtn">Toggle Skills</button>
+          <section class="experience">
+            <h2>Work Experience</h2>
+            <div class="job">
+              <p id="resumeexperience" contenteditable="true"></p>
+            </div>
+          </section>
+
+          <button class="experiencebtn">Toggle Experience</button>
+          <section class="education">
+            <h2>Education</h2>
+            <p id="resumeeducation" contenteditable="true"></p>
+          </section>
+
+          <button class="educationbtn">Toggle Education</button>
         </div>
       </section>
-
-      <button class="experiencebtn">Toggle Experience</button>
-      <section class="education">
-        <h2>Education</h2>
-        <ul>
-          <li id="resumeeducation" contenteditable="true"> </li>
-        </ul>
-      </section>
-
-      <button class="educationbtn">Toggle Education</button>
-      
     </div>
     <script src="script.js"></script>
   </body>
