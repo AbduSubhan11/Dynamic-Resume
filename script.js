@@ -55,12 +55,6 @@ form.addEventListener("submit", (event) => {
 function download() {
     window.print();
 }
-const copyButton = document.getElementById('copyButton');
-const resumeUrl = window.location.href;
-copyButton.addEventListener('click', () => {
-    copyToClipboard(resumeUrl);
-    alert('Resume URL copied to clipboard!');
-});
 function copyToClipboard(text) {
     const Input = document.createElement('input');
     Input.value = text;
@@ -69,3 +63,9 @@ function copyToClipboard(text) {
     document.execCommand('copy');
     document.body.removeChild(Input);
 }
+const copyButton = document.getElementById('copyButton');
+const resumeUrl = window.location.href;
+copyButton.addEventListener('click', () => {
+    copyToClipboard(resumeUrl);
+    alert('Resume URL copied to clipboard!');
+});

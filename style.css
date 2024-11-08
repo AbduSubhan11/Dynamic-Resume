@@ -246,3 +246,16 @@ h2 {
     width: 90%;
   }
 }
+
+@media (max-width:390px) {
+  .herocontainer{
+    flex-direction: column;
+    gap: 40px;
+  }
+  aside{
+    width: 100%;
+  }
+  .righthero{
+    width: 100%;
+  }
+}
