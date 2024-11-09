@@ -57,24 +57,6 @@ const summaryInput = document.getElementById("summary") as HTMLInputElement;
 const educationInput = document.getElementById("education") as HTMLInputElement;
 const form = document.getElementById("resumeForm") as HTMLFormElement;
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  resumeName.innerText = namesInput.value;
-  resumeEmail.innerText = emailInput.value;
-  resumePhone.innerText = phoneInput.value;
-  resumeSkills.textContent = skillsInput.value;
-  resumeExperience.innerText = experienceInput.value;
-  resumeSummary.innerText = summaryInput.value;
-  resumeEducation.innerText = educationInput.value;
-
-  form.classList.add("hidden");
-  container.classList.remove("hidden");
-
-  const username = encodeURIComponent(resumeName.innerText.trim());
-  const url = new URL(window.location.href);
-  url.searchParams.set("user", username);
-  window.history.pushState({ path: url.href }, "", url.href);
-});
 
 function download() {
   window.print();
